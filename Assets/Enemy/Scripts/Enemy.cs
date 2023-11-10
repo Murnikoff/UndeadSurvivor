@@ -41,4 +41,9 @@ public class Enemy : MonoBehaviour
             Destroy(rb.gameObject);
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+    }
 }

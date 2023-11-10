@@ -361,6 +361,37 @@ Transform:
   - {fileID: 1661876537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &193780911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193780912}
+  m_Layer: 0
+  m_Name: shotPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193780912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193780911}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.71, y: 0.098, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1658895609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315458525
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +406,7 @@ GameObject:
   - component: {fileID: 315458529}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,7 +453,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -819,7 +850,7 @@ MonoBehaviour:
   enemy3: {fileID: 6171431182260009729, guid: bf82aee52511ad44baa570aec0532878, type: 3}
   boss: {fileID: 6171431182260009729, guid: c166ba76db66e134fafdadd79701479f, type: 3}
   enemiesPerSecond: 0.5
-  BossPerSecond: 0.01
+  BossPerSecond: 1
   r: 10
 --- !u!4 &614007365
 Transform:
@@ -9668,6 +9699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658895609}
   - component: {fileID: 1658895610}
+  - component: {fileID: 1658895611}
   m_Layer: 0
   m_Name: Hand Left
   m_TagString: Untagged
@@ -9687,7 +9719,8 @@ Transform:
   m_LocalPosition: {x: 0.3, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 193780912}
   m_Father: {fileID: 486818366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1658895610
@@ -9742,6 +9775,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1658895611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658895608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe683abcfe8e4f71921dc117f763b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  bullet: {fileID: 7489511911894320938, guid: a74f13a6e94224f178cb19c6b1f6220c, type: 3}
+  shotpoint: {fileID: 193780912}
+  startTimeBtwShots: 0.5
 --- !u!1 &1661876536
 GameObject:
   m_ObjectHideFlags: 0
