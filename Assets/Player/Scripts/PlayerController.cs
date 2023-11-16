@@ -4,6 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriter;
+    [SerializeField] private Animator anim;
+
     private float horizontalInput;
     private float verticalInput;
     private Vector2 moveDirection;
@@ -27,5 +30,14 @@ public class PlayerController : MonoBehaviour
         newPosition = rb.position + (moveSpeed * Time.fixedDeltaTime * moveDirection);
 
         rb.MovePosition(newPosition);
+    }
+
+    private void LateUpdate()
+    {
+        anim.SetFloat("Speed", moveDirection.magnitude);
+
+        if (horizontalInput != 0) {
+            spriter.flipX = horizontalInput < 0;
+        } 
     }
 }
