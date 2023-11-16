@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private int HP;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject exp;
     private Transform player;
     private Animator animator;
     private float timeDead = 0;
@@ -21,7 +22,7 @@ public class Enemy : MonoBehaviour
         if (animator.GetBool("Dead"))
         {
             timeDead += Time.deltaTime;
-            if (timeDead > 1f)
+            if (timeDead > 0.5f)
             {
                 Destroy(rb.gameObject);
             }
@@ -34,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        if (player.position.x < rb.position.x)
+        if (!animator.GetBool("Dead") && player.position.x < rb.position.x)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -56,6 +57,10 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
             gameObject.tag = "Dead enemy";
             gameObject.GetComponent<Collider2D>().enabled = false;
+
+            Vector2 spawn = new Vector2(rb.position.x, rb.position.y);
+            Instantiate(exp, spawn, Quaternion.Euler(0, 0, 0));
+
         }
     }
     

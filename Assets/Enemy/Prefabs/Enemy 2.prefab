@@ -270,5 +270,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   HP: 1
-  XP: 0
   rb: {fileID: 1897175009576261740}
+  exp: {fileID: 7933142526903165721, guid: 9084cb3caf1607143b48c9c958157ef0, type: 3}
