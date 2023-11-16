@@ -1,22 +1,36 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private int HP;
-    [SerializeField] private int XP;
     [SerializeField] private Rigidbody2D rb;
     private Transform player;
+    private Animator animator;
+    private float timeDead = 0;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
-    {
-        Vector2 movement = (player.position - transform.position).normalized;
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    { 
+        if (animator.GetBool("Dead"))
+        {
+            timeDead += Time.deltaTime;
+            if (timeDead > 1f)
+            {
+                Destroy(rb.gameObject);
+            }
+        }
+        else 
+        {
+            Vector2 movement = (player.position - transform.position).normalized;
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
     private void Update()
     {
@@ -34,14 +48,17 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            animator.SetTrigger("Hit");
             HP -= 1;
         }
         if (HP <= 0)
         {
-            Destroy(rb.gameObject);
+            animator.SetBool("Dead", true);
+            gameObject.tag = "Dead enemy";
+            gameObject.GetComponent<Collider2D>().enabled = false;
         }
     }
-
+    
     public void TakeDamage(int damage)
     {
         HP -= damage;
