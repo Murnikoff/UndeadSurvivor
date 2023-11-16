@@ -636,7 +636,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5555556
+  m_Radius: 0.01
 --- !u!50 &486818369
 Rigidbody2D:
   serializedVersion: 4
@@ -850,7 +850,7 @@ MonoBehaviour:
   enemy3: {fileID: 6171431182260009729, guid: bf82aee52511ad44baa570aec0532878, type: 3}
   boss: {fileID: 6171431182260009729, guid: c166ba76db66e134fafdadd79701479f, type: 3}
   enemiesPerSecond: 0.5
-  BossPerSecond: 1
+  BossPerSecond: 0.01
   r: 10
 --- !u!4 &614007365
 Transform:
