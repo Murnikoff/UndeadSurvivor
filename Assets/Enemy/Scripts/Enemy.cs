@@ -54,6 +54,8 @@ public class Enemy : MonoBehaviour
         }
         if (HP <= 0)
         {
+            GameManager.instance.kill++;
+            GameManager.instance.GetExp();
             animator.SetBool("Dead", true);
             gameObject.tag = "Dead enemy";
             gameObject.GetComponent<Collider2D>().enabled = false;
