@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 88668460}
   - component: {fileID: 88668462}
   - component: {fileID: 88668461}
+  - component: {fileID: 88668463}
   m_Layer: 5
   m_Name: Text Kill
   m_TagString: Untagged
@@ -313,6 +314,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88668459}
   m_CullTransparentMesh: 1
+--- !u!114 &88668463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88668459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbac4e7336a444a809ef922f1ea9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1 &90271377
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +527,7 @@ GameObject:
   - component: {fileID: 486818367}
   - component: {fileID: 486818370}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,9 +616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 486818369}
-  spriter: {fileID: 486818365}
-  anim: {fileID: 486818370}
 --- !u!58 &486818368
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -977,6 +988,7 @@ GameObject:
   - component: {fileID: 721896642}
   - component: {fileID: 721896644}
   - component: {fileID: 721896643}
+  - component: {fileID: 721896645}
   m_Layer: 5
   m_Name: Text Level
   m_TagString: Untagged
@@ -1045,6 +1057,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721896641}
   m_CullTransparentMesh: 1
+--- !u!114 &721896645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721896641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbac4e7336a444a809ef922f1ea9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &812418491
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,6 +9580,7 @@ GameObject:
   - component: {fileID: 1089732301}
   - component: {fileID: 1089732300}
   - component: {fileID: 1089732299}
+  - component: {fileID: 1089732302}
   m_Layer: 5
   m_Name: Text Time
   m_TagString: Untagged
@@ -9638,6 +9664,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089732297}
   m_CullTransparentMesh: 1
+--- !u!114 &1089732302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089732297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbac4e7336a444a809ef922f1ea9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+--- !u!1 &1360672012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1360672014}
+  - component: {fileID: 1360672013}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1360672013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360672012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff5fe545b833a94db743b175be5e9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 486818367}
+  gameTime: 0
+  maxGameTime: 300
+  level: 0
+  exp: 0
+  kill: 0
+  nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
+--- !u!4 &1360672014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360672012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9917616, y: -0.5776937, z: -9.949622}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543625700
 GameObject:
   m_ObjectHideFlags: 0
@@ -18169,6 +18259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926997918}
   - component: {fileID: 1926997919}
+  - component: {fileID: 1926997920}
   m_Layer: 5
   m_Name: Slider Exp
   m_TagString: Untagged
@@ -18249,6 +18340,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1926997920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926997917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbac4e7336a444a809ef922f1ea9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &2051110998
 GameObject:
   m_ObjectHideFlags: 0
@@ -18331,6 +18435,7 @@ SceneRoots:
   - {fileID: 315458528}
   - {fileID: 951296536}
   - {fileID: 513368530}
+  - {fileID: 1360672014}
   - {fileID: 90271379}
   - {fileID: 486818366}
   - {fileID: 614007365}
