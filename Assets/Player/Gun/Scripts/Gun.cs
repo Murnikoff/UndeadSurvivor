@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : Sounds
+public class Gun : MonoBehaviour
 {
     public float offset;
     public GameObject bullet;
@@ -20,9 +20,10 @@ public class Gun : Sounds
         {
             if (Input.GetMouseButton(0))
             {
+                FindObjectOfType<AudioManager>().Play("Shot");
                 Instantiate(bullet, shotpoint.position, Quaternion.Euler(0f, 0f, rotZ + offset - 90));
                 TimeBtwShots = startTimeBtwShots;
-                PlaySound(sounds[0]);
+                
             }
         }
         else

@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class Sounds : MonoBehaviour
+[System.Serializable]
+
+public class Sounds
 {
-    public AudioClip[] sounds;
+    public string Name;
+    public AudioClip clip;
 
-    private AudioSource audioSrc => GetComponent<AudioSource>();
+    [Range(0f, 2f)]
+    public float Volume = 1f;
 
-    public void PlaySound(AudioClip clip, float volume = 1f, bool destroyed = false, float p1 = 0.85f, float p2 = 1.2f)
-    {
-        audioSrc.pitch = Random.Range(p1, p2);
+    [Range(1f, 3f)]
+    public float Pitch = 1f;
 
-        if (destroyed)
-            AudioSource.PlayClipAtPoint(clip, transform.position);
-        else
-            audioSrc.PlayOneShot(clip, volume);
-    }
+    public bool Loop = false;
+
+    public AudioSource AudioSource;
 }

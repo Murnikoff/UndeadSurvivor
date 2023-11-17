@@ -51,12 +51,14 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             animator.SetTrigger("Hit");
+            FindObjectOfType<AudioManager>().Play("Hit");
             HP -= 1;
         }
         if (HP <= 0)
         {
             GameManager.instance.kill++;
             GameManager.instance.GetExp();
+            FindObjectOfType<AudioManager>().Play("Kill");
             animator.SetBool("Dead", true);
             gameObject.tag = "Dead enemy";
             gameObject.GetComponent<Collider2D>().enabled = false;
