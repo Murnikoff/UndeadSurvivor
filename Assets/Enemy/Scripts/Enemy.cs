@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "Bullet")
         {
             animator.SetTrigger("Hit");
@@ -64,10 +65,5 @@ public class Enemy : MonoBehaviour
             Instantiate(exp, spawn, Quaternion.Euler(0, 0, 0));
 
         }
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        HP -= damage;
     }
 }

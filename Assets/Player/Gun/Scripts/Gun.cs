@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : Sounds
 {
     public float offset;
     public GameObject bullet;
@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
             {
                 Instantiate(bullet, shotpoint.position, Quaternion.Euler(0f, 0f, rotZ + offset - 90));
                 TimeBtwShots = startTimeBtwShots;
+                PlaySound(sounds[0]);
             }
         }
         else

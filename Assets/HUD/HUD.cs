@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Kill, Time, Health};
+    public enum InfoType { Exp, EaseExp, Level, Kill, Time, Health, EaseHealth };
     public InfoType type;
 
     Text myText;
@@ -25,7 +25,13 @@ public class HUD : MonoBehaviour
             case InfoType.Exp:
                 float curExp = GameManager.instance.exp;
                 float maxExp = GameManager.instance.nextExp[GameManager.instance.level];
-                mySlider.value = curExp/ maxExp;
+                mySlider.value = Mathf.Lerp(mySlider.value, curExp / maxExp, 0.005f);
+                break;
+
+            case InfoType.EaseExp:
+                float curEaseExp = GameManager.instance.exp;
+                float maxEaseExp = GameManager.instance.nextExp[GameManager.instance.level];
+                mySlider.value = curEaseExp / maxEaseExp;
                 break;
 
             case InfoType.Level:
@@ -44,9 +50,16 @@ public class HUD : MonoBehaviour
                 break;
 
             case InfoType.Health:
-
+                float curHealth = GameManager.instance.health;
+                float maxHealth = GameManager.instance.maxHealth;
+                mySlider.value = curHealth / maxHealth;
                 break;
 
+            case InfoType.EaseHealth:
+                float curEaseHealth = GameManager.instance.health;
+                float maxEaseHealth = GameManager.instance.maxHealth;
+                mySlider.value = Mathf.Lerp(mySlider.value, curEaseHealth / maxEaseHealth, 0.005f);
+                break;
 
         }
     }
