@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer spriter;
-    [SerializeField] private Animator anim;
+    Rigidbody2D rb;
+    SpriteRenderer spriter;
+    Animator anim;
 
     private float horizontalInput;
     private float verticalInput;
     private Vector2 moveDirection;
     private Vector2 newPosition;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -36,8 +43,17 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetFloat("Speed", moveDirection.magnitude);
 
-        if (horizontalInput != 0) {
+        if (horizontalInput != 0)
+        {
             spriter.flipX = horizontalInput < 0;
         } 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameManager.instance.health -= 10;
+        }
     }
 }
