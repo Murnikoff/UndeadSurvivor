@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "Bullet")
         {
             animator.SetTrigger("Hit");
@@ -54,6 +55,8 @@ public class Enemy : MonoBehaviour
         }
         if (HP <= 0)
         {
+            GameManager.instance.kill++;
+            GameManager.instance.GetExp();
             animator.SetBool("Dead", true);
             gameObject.tag = "Dead enemy";
             gameObject.GetComponent<Collider2D>().enabled = false;
@@ -62,10 +65,5 @@ public class Enemy : MonoBehaviour
             Instantiate(exp, spawn, Quaternion.Euler(0, 0, 0));
 
         }
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        HP -= damage;
     }
 }
