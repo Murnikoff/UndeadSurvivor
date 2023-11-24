@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -559952939078912616}
   - component: {fileID: -837148797558028030}
   - component: {fileID: 6918775389680732196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Exp 0
   m_TagString: Exp
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exp: 1
-  speed: 3
+  speed: 10
 --- !u!58 &6918775389680732196
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,10 +155,10 @@ CircleCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
